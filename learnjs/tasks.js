@@ -151,3 +151,62 @@
 // console.log(updateData(students))
 
 
+
+
+
+
+
+// Promise.resolve(10)
+//
+//     .then(e => console.log(e)) // ?? 10
+//
+//     .then(e => Promise.resolve(e))
+//
+//     .then(console.log) // ?? undefined
+//
+//     .then(e => {
+//
+//         if (!e) {
+//
+//             throw 'Error caught';
+//
+//         }
+//
+//     })
+//
+//     .catch(e => {
+//
+//         console.log(e); // ?? "Error caught"
+//
+//         return new Error('New error');
+//
+//     })
+//
+//     .then(e => {
+//
+//         console.log(e.message); // ??
+//
+//     })
+//
+//     .catch(e => {
+//
+//         console.log(e.message); // ?? "New error"
+//
+//     });
+
+
+
+// Реализуйте функцию нахождения пересечения двух массивов.
+
+// const first = [1, 2, 3, 4];
+//
+// const second = [3, 4, 5, 6];
+//
+// function intersection (a, b) {
+//     return a.filter((item) => b.find((sItem) => item === sItem))
+// }
+//
+// console.log(intersection(first, second))
+
+
+
