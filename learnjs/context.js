@@ -104,3 +104,112 @@
 // for (let args of work.calls) {
 //     alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
 // }
+
+
+
+// Что выводится в консоль? Что нужно изменить, чтобы вывелось 25?
+
+// const a = 10;
+//
+// function func() {
+//     const a = 15;
+//
+//     console.log(a); // 15
+//     // console.log(this.a); // answer 25
+// }
+//
+// func.bind({ a: 25 })();
+
+
+
+// Что выводится в консоль?
+//
+//     function func() {
+//         console.log(this.a); // 5
+//     }
+//
+//     func.bind({ a: 5 }).bind({ a: 10 }).bind({ a: 15 })();
+
+
+
+// Что выводится в консоль?
+
+
+// из за строгово режима undefined без него трижды глобальный виндов
+
+// "use strict"
+// function foo1() {
+//     console.log(this)
+//     function foo2() {
+//         console.log(this)
+//         function foo3() {
+//             console.log(this)
+//         }
+//         foo3()
+//     }
+//     foo2()
+// }
+// foo1()
+
+
+
+
+
+// Исправить ошибку (вывод  “Привет AA”) и после
+// исправления ошибки поменять контекст на объект women(вывод “Привет NN)”
+
+// TASK
+// const hello = () => {
+//     console.log("Привет", this?.name)
+// }
+// const women = {
+//     name: "Цунаде",
+// }
+// const obj = {
+//     name: "Глеб",
+//     sayHello: hello,
+// }
+//
+// obj.sayHello()
+
+
+// ANSWER
+// const hello = function () {
+//     console.log("Привет", this?.name)
+// }
+// const women = {
+//     name: "NN",
+// }
+// const obj = {
+//     name: "AA",
+//     sayHello: hello,
+// }
+//
+// const foo = obj.sayHello.bind(women)
+// foo()
+
+
+
+// //Что выводится в консоль?
+//
+// function Car() {
+//     this.make = "Lamborghini"
+//     return { make: "Maserati" }
+// }
+//
+// const myCar = new Car()
+// console.log(myCar.make)
+//
+// //MASERATI
+
+
+
+
+
+// function test() {
+//     console.log(this)
+//     const fun = () => console.log(this);
+//     fun();
+// }
+//
+// test.call({ name: "Глеб" });

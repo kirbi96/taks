@@ -239,3 +239,33 @@
 //
 // console.log(flatArr([1,[2],[[3],[4]]]))
 
+
+// // Что выводится в консоль?
+// var v = 1;
+// var f1 = function () {
+//     console.log(v);
+// }
+// var f2 = function() {
+//     var v = 2;
+//     f1(); // Will this print 1 or 2?   ANSWER 1
+// };
+// f2();
+
+
+// Написать функцию add
+function add(a) {
+    let currentSum = a;
+
+    function f(b) {
+        currentSum += b;
+        return f;
+    }
+
+    f.toString = function() {
+        return currentSum;
+    };
+
+    return f;
+}
+alert(add(1)(2)(3)) // 6
+alert(add(1)(2)(3)(4)) // 10
