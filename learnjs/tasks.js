@@ -253,19 +253,127 @@
 
 
 // Написать функцию add
-function add(a) {
-    let currentSum = a;
+// function add(a) {
+//     let currentSum = a;
+//
+//     function f(b) {
+//         currentSum += b;
+//         return f;
+//     }
+//
+//     f.toString = function() {
+//         return currentSum;
+//     };
+//
+//     return f;
+// }
+// alert(add(1)(2)(3)) // 6
+// alert(add(1)(2)(3)(4)) // 10
 
-    function f(b) {
-        currentSum += b;
-        return f;
-    }
 
-    f.toString = function() {
-        return currentSum;
-    };
 
-    return f;
-}
-alert(add(1)(2)(3)) // 6
-alert(add(1)(2)(3)(4)) // 10
+
+// const arr = [10, 12, 15, 21];
+// for (let i = 0; i < arr.length; i++) {
+//     setTimeout(() => {
+//         console.log('Index: ' + i + ', element: ' + arr[i]);
+//     }, 1000 * i);
+// }
+
+
+
+
+// (function immediateA(a) {
+//     return (function immediateB(b) {
+//         console.log(a); // What is logged?    ANSWER 0
+//     })(1);
+// })(0);
+
+
+
+
+// let count = 0;
+// (function immediate() {
+//     if (count === 0) {
+//         let count = 1;
+//         console.log(count); // What is logged? 1
+//     }
+//     console.log(count); // What is logged?  0
+// })();
+
+
+
+
+// const obj = {
+//     title: 'asdw'
+// }
+//
+// function test(obj) {
+//     obj.title = 'sss'
+// }
+//
+// test() // тут надо еще передать обьект
+//
+// console.log(obj)   // title = sss
+
+// __________________
+
+// const obj = {
+//     title: 'asdw'
+// }
+//
+// function test1(obj) {
+//     obj = 2
+// }
+//
+// console.log('outer', obj)   // title = asdw
+
+
+
+// Promise.reject('a')
+//     .catch(e => e + 'b')  //ab
+//     .catch(e => e + 'c')
+//     .then(p => p + 'b')  //abb
+//     .then(p => p + 'c')  //abbc
+//     .finally(p => console.log(11111, p))//abbc
+//     .then(p => console.log(22222,p)) //undefined??
+// оказалось наоборот
+
+
+// const firstPromise = new Promise((res, rej) => {
+//     setTimeout(res, 500, "one")
+// })
+//
+// const secondPromise = new Promise((res, rej) => {
+//     setTimeout(res, 100, "two")
+// })
+//
+// Promise.race([firstPromise, secondPromise]).then(res => console.log(res))
+
+
+// // two
+
+
+
+
+// Какие числа выводятся в консоль?
+//
+//     let number = 0
+// console.log(number++) // 0
+// console.log(++number) // 2
+// console.log(number) // 2
+
+
+
+// Найти минимальное число в массиве:
+// const arr = [1, 34, -234, 2, 35435, 43536, , -3, 1, 43535, null, undefined, "XXX", Boolean(true)]
+// const nArr = arr.filter((i) => typeof i === 'number')
+// console.log(Math.min(...nArr))
+
+
+//Длина последнего слова.
+// const lengthOfLastWord = (str) => console.log(str.trim().split(" ").pop().length)
+//
+// lengthOfLastWord(''); // 0
+// lengthOfLastWord('man in BlacK'); // 5
+// lengthOfLastWord('hello, world!  '); // 6

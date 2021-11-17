@@ -156,3 +156,163 @@
 // let a = Promise.resolve(100).then(x => x + 1).catch(x => x + 2).then(x => x + 3).then(x => x + 10)
 //
 // console.log(a)
+
+
+
+
+
+// (function() {
+//     console.log("1");
+//
+//     setTimeout(() => {
+//         console.log("2");
+//     }, 0);
+//
+//     console.log("3");
+//
+//     setTimeout(() => {
+//         console.log("4");
+//     }, 0);
+//
+//     console.log("5");
+// })();
+//
+// // 1 3 5 2 4
+
+
+
+// setTimeout(() => {
+//     console.log("timeout1")
+// })
+// console.log("cons1")
+// Promise.resolve("Promise1").then((res) => console.log(res))
+// setTimeout(() => {
+//     console.log("timeout2")
+// })
+// Promise.resolve("Promise2").then((res) => console.log(res))
+// console.log("cons2")
+//
+//
+// // cons 1 -> cons 2 -> p1 -> p2 -> t1 -> t2
+
+
+
+//
+// const bar = () => {
+//     console.log(1);
+//     setTimeout(() => {
+//         console.log(2);
+//     }, 0);
+//
+//     Promise.resolve()
+//         .then(() => {
+//             console.log(3);
+//         })
+//         .then(() => {
+//             console.log(4);
+//         })
+//         .then(() => {
+//             setTimeout(() => {
+//                 console.log(5);
+//             }, 0);
+//             setTimeout(() => {
+//                 console.log(6);
+//             }, 0);
+//         })
+//         .then(() => {
+//             setTimeout(() => {
+//                 console.log(7);
+//             }, 0);
+//             setTimeout(() => {
+//                 console.log(8);
+//             }, 0);
+//         })
+//         .then(() => {
+//             throw '';
+//         })
+//         .catch(() => {
+//             console.log(9);
+//         })
+//         .then(() => {
+//             console.log(10);
+//         })
+//         .catch(() => {
+//             console.log(11);
+//         });
+//
+//     console.log(12);
+// };
+//
+// bar();
+
+
+// 1 12 3 4 9 10 2 5 6 7 8
+
+
+
+
+// console.log(1);
+// setTimeout(() => {
+//     console.log(2);
+// }, 2000);
+// console.log(3);
+// const p1 = Promise.resolve(12).then((d) => {
+//     console.log(d);
+//     return d + 1;
+// });
+// console.log(8);
+// setTimeout(() => {
+//     const p2 = new Promise((rs) => {
+//         rs(18);
+//     });
+//
+//     p2.then((d) => console.log(d));
+//     p1.then((d) => console.log(d));
+//
+//     for (let i = 14; i < 16; i++) {
+//         console.log(i);
+//     }
+// }, 1000);
+// console.log(10);
+//
+// // 1 3 8 10 12 14 15 18 13 2
+
+
+
+
+// setTimeout(function timeout() {
+//     console.log('Таймаут');
+// }, 0);
+//
+// let p = new Promise(function(resolve, reject) {
+//     console.log('Создание промиса');
+//     resolve();
+// });
+//
+// p.then(function(){
+//     console.log('Обработка промиса');
+// });
+//
+// console.log('Конец скрипта');
+
+
+// создание промиса  конец  обработка промиса    таймаут
+
+
+
+// const timeout = () => {
+//     setTimeout(() => console.log(0), 100);
+//     setTimeout(() => console.log(1), 0);
+//
+//     new Promise((resolve) => resolve()).then(() => console.log(2));
+//
+//     console.log(4);
+//
+//     for (let a = 0; a < 10000; a++) {}
+//
+//     setTimeout(() => console.log(3), 10);
+// };
+//
+// timeout()
+//
+// // 4 2 1 3 0
